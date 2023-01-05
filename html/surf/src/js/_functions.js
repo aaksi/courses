@@ -52,11 +52,29 @@ console.log(mobileCheck())
 // Подключение свайпера
 import Swiper, { Navigation, Pagination,  EffectFade} from 'swiper';
 Swiper.use([Navigation, Pagination, EffectFade]);
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.swiper-header', {
   slidesPerView: 'auto',
   loop:true,
   effect:'fade',
   speed: 500,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    renderBullet: function (index, className) {
+      const $items = document.querySelectorAll('.header__slider-item')
+
+      $items.forEach($item =>{
+        let text = $item.querySelector('.slider-item__info-title')
+        return '<span class="' + className + '">' + text + '</span>';
+      })
+
+
+      // return '<span class="' + className + '">' + (index + 1) + '</span>';
+    },
+  },
 });
 
 // Подключение анимаций по скроллу

@@ -1,4 +1,7 @@
-.header__slider {}
+.header{
+  position: relative;
+  height: 100vh;
+}
 
 .swiper {}
 
@@ -42,10 +45,40 @@
 
 }
 
+.slider-item__info-text{
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
 .slider-item__info-subtext {
   margin-bottom: 8px;
 }
 
 .slider-item__info-link {
+
+}
+
+.header__slider-nav{
+  position: absolute;
+  top: 40px;
+  right: 80px;
+  display: flex;
+  gap: 20px;
+
+}
+.swiper-button-next, .swiper-button-prev{
+  position: static;
+
+  transition: $transition;
+  &:hover{
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
+  }
+
+  &:active{
+    transform: scale(1);
+  }
 
 }

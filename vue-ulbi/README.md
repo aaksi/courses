@@ -1,4 +1,4 @@
-# vue-ulbi
+# project
 
 ## Project setup
 ```
