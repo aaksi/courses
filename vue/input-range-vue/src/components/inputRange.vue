@@ -6,7 +6,11 @@
       @input="gramCalc"
       v-model="calcValue"
     />
+    <template>
+      <vue-slider v-model="value" />
+    </template>
     <input
+      class="range"
       type="range"
       :min="minCarat"
       :max="maxCarat"
@@ -18,8 +22,17 @@
 </template>
 
 <script>
+import { reactive, toRefs } from "vue"
+import VueSlider from "vue-slider-component"
+import "vue-slider-component/theme/antd.css"
+
 export default {
   name: "inputRange",
+
+  setup() {
+    const data = reactive({ value: 0 })
+    return toRefs(data)
+  },
   data() {
     return {
       rangeValue: 0.03,
@@ -66,4 +79,12 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.range {
+  background: #fff;
+  height: 80px;
+  width: 380px;
+  border-radius: 10px;
+  padding: 0 65px 0 45px;
+}
+</style>
