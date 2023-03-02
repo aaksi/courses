@@ -1,4 +1,3 @@
-
 let $start = document.querySelector('#start')
 let $game = document.querySelector('#game')
 let $time = document.querySelector('#time')
