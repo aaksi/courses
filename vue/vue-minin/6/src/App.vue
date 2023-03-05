@@ -44,6 +44,12 @@ export default {
       ]
     }
   },
+  provide(){
+    return{
+      title: 'Список всех новостей',
+      news: this.news,
+    }
+  },
   methods:{
     openNews(){
       this.openRate++
@@ -67,4 +73,8 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+  h2{
+    color: #ff8787;
+  }
+</style>
