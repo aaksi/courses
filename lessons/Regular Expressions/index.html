@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="">+7999-000-00-00</a>
+
+  <script>
+    let str = document.querySelector('a').textContent
+    let regexp = /\d/g
+    let number = str.match(regexp).join('')
+    document.querySelector('a').setAttribute('href', `tel:${number}`)
+  </script>
+</body>
+
+</html>
