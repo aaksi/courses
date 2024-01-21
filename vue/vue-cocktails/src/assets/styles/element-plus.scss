@@ -1,0 +1,10 @@
+.el-select__wrapper {
+  .select & {
+    background-color: $bg;
+  }
+}
+.el-select__input  {
+  .select & {
+    color: $text;
+  }
+}
