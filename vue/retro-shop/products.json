@@ -1,0 +1,219 @@
+[
+  {
+    "name": "Vintage Brass Table Lamp",
+    "img": "lamp1",
+    "price": "$99.99",
+    "description": "Beautiful vintage brass table lamp from the 50s-70s era. Adds a touch of elegance to any room.",
+    "type": "lamp"
+  },
+  {
+    "name": "Mid-Century Floor Lamp",
+    "img": "lamp2",
+    "price": "$149.99",
+    "description": "Iconic mid-century floor lamp with a sleek design. Perfect for modern and retro interiors.",
+    "type": "lamp"
+  },
+  {
+    "name": "Retro Pendant Light",
+    "img": "lamp3",
+    "price": "$79.99",
+    "description": "Stylish retro pendant light that brings a nostalgic vibe to your space.",
+    "type": "lamp"
+  },
+  {
+    "name": "Atomic Era Wall Sconce",
+    "img": "lamp4",
+    "price": "$129.99",
+    "description": "Unique atomic era wall sconce with a futuristic design. A statement piece for your home.",
+    "type": "lamp"
+  },
+  {
+    "name": "Danish Teak Desk Lamp",
+    "img": "lamp5",
+    "price": "$119.99",
+    "description": "Classic Danish teak desk lamp known for its quality craftsmanship and timeless style.",
+    "type": "lamp"
+  },
+  {
+    "name": "Space Age Ceiling Light",
+    "img": "lamp6",
+    "price": "$199.99",
+    "description": "Futuristic space age ceiling light that adds a retro touch to any room.",
+    "type": "lamp"
+  },
+  {
+    "name": "Art Deco Floor Lamp",
+    "img": "lamp7",
+    "price": "$179.99",
+    "description": "Elegant art deco floor lamp with intricate details and a touch of glamour.",
+    "type": "lamp"
+  },
+  {
+    "name": "Industrial Cage Pendant",
+    "img": "lamp8",
+    "price": "$89.99",
+    "description": "Vintage industrial cage pendant light that complements industrial and retro decor styles.",
+    "type": "lamp"
+  },
+  {
+    "name": "MCM Tripod Table Lamp",
+    "img": "lamp9",
+    "price": "$109.99",
+    "description": "Mid-century modern tripod table lamp with a minimalist design and adjustable light.",
+    "type": "lamp"
+  },
+  {
+    "name": "Hollywood Regency Chandelier",
+    "img": "lamp10",
+    "price": "$249.99",
+    "description": "Luxurious Hollywood Regency chandelier that exudes opulence and sophistication.",
+    "type": "lamp"
+  }
+]
+
+[
+  {
+      "name": "Vintage Velvet Sofa",
+      "img": "sofa1",
+      "price": "$999.99",
+      "description": "Luxurious vintage velvet sofa from the 50s-70s era. Adds elegance and comfort to your living space.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Mid-Century Modern Couch",
+      "img": "sofa2",
+      "price": "$1299.99",
+      "description": "Iconic mid-century modern couch with sleek lines and retro charm. Perfect centerpiece for your home.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Retro Leather Loveseat",
+      "img": "sofa3",
+      "price": "$899.99",
+      "description": "Stylish retro leather loveseat with a classic design. Ideal for small spaces and cozy corners.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Danish Teak Daybed",
+      "img": "sofa4",
+      "price": "$1499.99",
+      "description": "Classic Danish teak daybed known for its craftsmanship and versatility. A timeless addition to your home.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Art Deco Chaise Lounge",
+      "img": "sofa5",
+      "price": "$1799.99",
+      "description": "Elegant art deco chaise lounge with curved lines and luxurious upholstery. Elevates your decor with sophistication.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Atomic Era Sectional Sofa",
+      "img": "sofa6",
+      "price": "$1999.99",
+      "description": "Futuristic atomic era sectional sofa with modular design. Creates a retro-futuristic vibe in your living room.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Scandinavian Style Settee",
+      "img": "sofa7",
+      "price": "$1099.99",
+      "description": "Minimalist Scandinavian style settee with clean lines and natural materials. Brings Nordic charm to your space.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Hollywood Regency Sofa",
+      "img": "sofa8",
+      "price": "$2499.99",
+      "description": "Opulent Hollywood Regency sofa with glamourous details and plush upholstery. Makes a statement in any room.",
+      "type" : "sofa"
+  },
+  {
+      "name": "Industrial Leather Sleeper Sofa",
+      "img": "sofa9",
+      "price": "$1799.99",
+      "description": "Vintage industrial leather sleeper sofa that combines style and functionality. Perfect for modern industrial interiors.",
+      "type" : "sofa"
+  },
+  {
+      "name": "French Provincial Settee",
+      "img": "sofa10",
+      "price": "$1599.99",
+      "description": "Elegant French provincial settee with ornate details and romantic allure. Adds a touch of French charm to your decor.",
+      "type" : "sofa"
+  }
+]
+
+
+[
+  {
+      "name": "Vintage Velvet Armchair",
+      "img": "chair1",
+      "price": "$299.99",
+      "description": "Luxurious vintage velvet armchair from the 50s-70s era. Adds sophistication to any room.",
+      "type": "chair"
+  },
+  {
+      "name": "Mid-Century Dining Chair",
+      "img": "chair2",
+      "price": "$199.99",
+      "description": "Iconic mid-century dining chair with sleek design. Perfect for retro-inspired dining spaces.",
+      "type": "chair"
+  },
+  {
+      "name": "Retro Leather Lounge Chair",
+      "img": "chair3",
+      "price": "$349.99",
+      "description": "Stylish retro leather lounge chair for ultimate comfort. A statement piece in any living room.",
+      "type": "chair"
+  },
+  {
+      "name": "Danish Teak Rocking Chair",
+      "img": "chair4",
+      "price": "$269.99",
+      "description": "Classic Danish teak rocking chair known for its craftsmanship and timeless appeal.",
+      "type": "chair"
+  },
+  {
+      "name": "Art Deco Club Chair",
+      "img": "chair5",
+      "price": "$399.99",
+      "description": "Elegant art deco club chair with curved lines and plush upholstery. Adds luxury to your decor.",
+      "type": "chair"
+  },
+  {
+      "name": "Atomic Era Swivel Chair",
+      "img": "chair6",
+      "price": "$279.99",
+      "description": "Futuristic atomic era swivel chair with a retro design. Adds a touch of nostalgia to your space.",
+      "type": "chair"
+  },
+  {
+      "name": "Scandinavian Style Accent Chair",
+      "img": "chair7",
+      "price": "$229.99",
+      "description": "Minimalist Scandinavian style accent chair with clean lines and natural materials.",
+      "type": "chair"
+  },
+  {
+      "name": "Hollywood Regency Armchair",
+      "img": "chair8",
+      "price": "$449.99",
+      "description": "Opulent Hollywood Regency armchair with glamorous details and elegant silhouette.",
+      "type": "chair"
+  },
+  {
+      "name": "Industrial Leather Side Chair",
+      "img": "chair9",
+      "price": "$319.99",
+      "description": "Vintage industrial leather side chair that combines style and durability. Perfect for industrial chic interiors.",
+      "type": "chair"
+  },
+  {
+      "name": "French Provincial Bergere Chair",
+      "img": "chair10",
+      "price": "$379.99",
+      "description": "Elegant French provincial bergere chair with intricate details and classic charm.",
+      "type": "chair"
+  }
+]

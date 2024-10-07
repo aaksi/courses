@@ -101,6 +101,9 @@ onMounted(async () => {
     ...item,
     isAdded: cart.value.some((cartItem) => cartItem.id === item.id)
   }))
+
+
+  
 })
 
 watch(cart, () => {
