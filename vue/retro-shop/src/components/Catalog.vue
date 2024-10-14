@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue'
 import CatalogNav from './CatalogNav.vue'
 import CatalogList from './CatalogList.vue'
-
 </script>
 
 <template>

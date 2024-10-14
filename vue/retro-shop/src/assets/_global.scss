@@ -6,8 +6,11 @@ body {
   color: var(--c-text);
   font-family: 'NewYork', sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
-
+html {
+  scrollbar-gutter: stable;
+}
 * {
   letter-spacing: 0.03em;
 }
@@ -195,4 +198,36 @@ h1.e-title {
   text-align: center;
   font-size: 220px;
   font-weight: 400;
+  margin: 20px 0 80px;
+}
+.g-main {
+  position: relative;
+  &.is-active {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.g-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 30vw;
+  height: 100vh;
+  background-color: var(--c-bg);
+}
+
+.e-btn {
+  padding: 24px 40px;
+  border-radius: 500px;
+  background-color: var(--c-text);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  z-index: 10;
+  cursor: pointer;
 }

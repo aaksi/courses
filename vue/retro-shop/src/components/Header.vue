@@ -1,4 +1,13 @@
-<script setup></script>
+<script setup>
+import { defineProps } from 'vue';
+
+const emit = defineEmits(['cartActiveToggle'])
+const props = defineProps({
+  cartItems: {
+    type: Array
+  }
+})
+</script>
 
 <template>
   <div class="g-header">
@@ -13,8 +22,22 @@
           </li>
           <li class="g-header__item">
             <a href="#" class="g-header__link"
-              >Корзина <span class="g-header__link-count">0</span></a
+              >Корзина <span class="g-header__link-count">{{ cartItems.length }}</span></a
             >
+          </li>
+          <li>
+            <div class="g-header__burger" @click='emit("cartActiveToggle")'>
+              <svg
+                width="56"
+                height="15"
+                viewBox="0 0 56 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="6" y="0.5" width="50" height="1" fill="#343339" />
+                <rect x="16" y="13.5" width="40" height="1" fill="#343339" />
+              </svg>
+            </div>
           </li>
         </ul>
       </div>
@@ -25,6 +48,7 @@
 <style lang="scss" scoped>
 .g-header {
   padding-top: 60px;
+
 }
 
 .g-header__inner {
@@ -62,6 +86,16 @@
   width: 97px;
   height: 35px;
   img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.g-header__burger {
+  width: 56px;
+  height: 15px;
+
+  cursor: pointer;
+  svg {
     width: 100%;
     height: 100%;
   }

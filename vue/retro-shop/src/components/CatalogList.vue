@@ -4,7 +4,10 @@ import Card from './Card.vue'
 
 const productsInject = inject('products')
 const catalogCategories = inject('catalogCategories')
-const productsPerPage = ref(3)
+const productsPerPage = inject('productsPerPage')
+
+console.log(catalogCategories)
+
 const activeCategory = ref('all')
 function getCategoryActive(arr) {
   return arr.find((el) => el.active)
@@ -14,7 +17,6 @@ watch(
   catalogCategories,
   () => {
     activeCategory.value = getCategoryActive(catalogCategories.value).name.toLowerCase()
- 
   },
   { deep: true }
 )
@@ -23,9 +25,8 @@ watch(
 <template>
   <div class="c-catalog-list">
     <template v-for="(product, idx) in productsInject" :key="product.id">
-      <template v-if="idx < productsPerPage ">
+      <template v-if="idx < productsPerPage">
         <Card :card="product"></Card>
-   
       </template>
     </template>
   </div>
