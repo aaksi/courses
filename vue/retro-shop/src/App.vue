@@ -102,6 +102,10 @@ function cartActiveToggle() {
   cartActive.value = !cartActive.value
 }
 
+function deleteItemCart(id) {
+  console.log(id)
+}
+
 onMounted(async () => {
   await getProducts(URL)
   await getCartItems(URL)
@@ -113,11 +117,13 @@ provide('productsPerPage', productsPerPage)
 provide('catalogCategories', catalogCategories)
 provide('categoryActivated', categoryActivated)
 provide('products', productsActive)
+provide('cartItems', cartItems)
+provide('deleteItemCart', deleteItemCart)
 </script>
 
 <template>
   <div class="g-main" :class="{ 'is-active': cartActive }">
-    <Header @cartActiveToggle="cartActiveToggle" :cartItems='cartItems'></Header>
+    <Header @cartActiveToggle="cartActiveToggle" :cartItems="cartItems"></Header>
     <h1 class="e-title">SHOP</h1>
 
     <Catalog :products="products"></Catalog>
