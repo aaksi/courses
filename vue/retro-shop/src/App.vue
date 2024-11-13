@@ -1,10 +1,15 @@
 <script setup>
 import { ref, provide, onMounted } from 'vue'
+import axios from 'axios'
+
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import Catalog from './components/Catalog.vue'
 import Cart from './components/Cart.vue'
+
 import { URL } from './constans'
+
+
 
 const catalogCategories = ref([
   {
@@ -66,29 +71,21 @@ function setProductActive(arr, type) {
   return arr
 }
 
+// const getProducts = async (url) => {
+//   try {
+//     const res = await fetch(`${url}items`)
+//     const data = await res.json()
+//     console.log('products: ', data)
+
+//     products.value = data
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
 const getProducts = async (url) => {
-  try {
-    const res = await fetch(`${url}items`)
-    const data = await res.json()
-    console.log('products: ', data)
-
+    const { data } = await axios.get(`${url}items`)  
     products.value = data
-  } catch (err) {
-    console.error(err)
-  }
-}
-
-const getCartItems = async (url) => {
-  try {
-    const res = await fetch(`${url}cart`)
-    const data = await res.json()
-    console.log('cartItems: ', data)
-
-    cartItems.value = data
-  } catch (err) {
-    console.error(err)
-  }
-}
+} 
 
 function shuffleArray(array) {
   function compareRandom() {
@@ -102,13 +99,37 @@ function cartActiveToggle() {
   cartActive.value = !cartActive.value
 }
 
+function addToCart(id) {
+  if (cartItems.value.length) {
+    if (cartItems.value.find((el) => el.id == id)) return
+  }
+  products.value.forEach((el) => {
+    if (el.id === id) {
+      el.cart = true
+      cartItems.value.push(el)
+    }
+  })
+
+  localStorage.setItem('cart', JSON.stringify(cartItems.value))
+}
+
+function deleteItemArr(arr, id) {
+  return arr.filter((el) => el.id !== id)
+}
+
 function deleteItemCart(id) {
-  console.log(id)
+  cartItems.value.forEach((el) => {
+    if (el.id === id) {
+      el.cart = false
+      cartItems.value = deleteItemArr(cartItems.value, el.id)
+      localStorage.setItem('cart', JSON.stringify(cartItems.value))
+    }
+  })
 }
 
 onMounted(async () => {
+  cartItems.value = JSON.parse(localStorage.getItem('cart')) || []
   await getProducts(URL)
-  await getCartItems(URL)
   await shuffleArray(products.value)
   productsActive.value = products.value
 })
@@ -118,6 +139,7 @@ provide('catalogCategories', catalogCategories)
 provide('categoryActivated', categoryActivated)
 provide('products', productsActive)
 provide('cartItems', cartItems)
+provide('addToCart', addToCart)
 provide('deleteItemCart', deleteItemCart)
 </script>
 
@@ -125,9 +147,7 @@ provide('deleteItemCart', deleteItemCart)
   <div class="g-main" :class="{ 'is-active': cartActive }">
     <Header @cartActiveToggle="cartActiveToggle" :cartItems="cartItems"></Header>
     <h1 class="e-title">SHOP</h1>
-
     <Catalog :products="products"></Catalog>
-
     <Cart @cartActiveToggle="cartActiveToggle" :cartActive="cartActive"></Cart>
     <Footer></Footer>
   </div>

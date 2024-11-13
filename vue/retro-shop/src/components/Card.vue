@@ -1,6 +1,9 @@
 <script setup>
+import { inject } from 'vue'
+
 const props = defineProps(['card'])
 
+const addToCart = inject('addToCart')
 </script>
 
 <template>
@@ -12,7 +15,7 @@ const props = defineProps(['card'])
       </div>
       <div class="c-card__img">
         <img :src="`../../public/products/${card.type}/${card.img}.png`" :alt="card.name" />
-        <div class="c-card__btn" @click='$emit("addToCart", card)'>add to cart</div>
+        <div class="c-card__btn" v-if="!card.cart" @click="addToCart(card.id)">add to cart</div>
       </div>
       <div class="c-card__cnt">
         <div class="c-card__name">{{ card.name }}</div>

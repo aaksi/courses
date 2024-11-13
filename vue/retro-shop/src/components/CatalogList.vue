@@ -6,7 +6,6 @@ const productsInject = inject('products')
 const catalogCategories = inject('catalogCategories')
 const productsPerPage = inject('productsPerPage')
 
-console.log(catalogCategories)
 
 const activeCategory = ref('all')
 function getCategoryActive(arr) {

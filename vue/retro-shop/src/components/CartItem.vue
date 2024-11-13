@@ -19,7 +19,7 @@ const deleteItemCart = inject('deleteItemCart')
           {{ item.price }}
         </div>
       </div>
-      <button class="c-cart-item__btn-close"     @click='deleteItemCart(props.item.id)'>
+      <button class="c-cart-item__btn-close"     @click='deleteItemCart(item.id)'>
         <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
