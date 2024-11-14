@@ -1,6 +1,5 @@
 <script setup>
 import { ref, provide, onMounted } from 'vue'
-import { RouterView } from 'vue-router'
 import axios from 'axios'
 
 import Header from './components/Header.vue'
@@ -147,7 +146,8 @@ provide('deleteItemCart', deleteItemCart)
 <template>
   <div class="g-main" :class="{ 'is-active': cartActive }">
     <Header @cartActiveToggle="cartActiveToggle" :cartItems="cartItems"></Header>
-    <RouterView />
+    <h1 class="e-title">SHOP</h1>
+    <Catalog :products="products"></Catalog>
     <Cart @cartActiveToggle="cartActiveToggle" :cartActive="cartActive"></Cart>
     <Footer></Footer>
   </div>

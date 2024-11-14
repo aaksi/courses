@@ -4,12 +4,25 @@ import { inject } from 'vue'
 const props = defineProps(['card'])
 
 const addToCart = inject('addToCart')
+
+function cardLink(card) {
+  const cardLink = card.split(' ').join('-')
+  return cardLink
+}
+
+function cardId(card) {
+  return card.id
+}
 </script>
 
 <template>
   <div class="c-card">
     <div class="c-card__inner">
-      <a class="c-card__link" href="card.link"></a>
+      <!-- <router-link class="c-card__link" :to="`catalog/${card.id}`"></router-link> -->
+      <router-link
+        class="c-card__link"
+        :to="{ name: 'product', params: { name: cardLink(card.name)}, props : 111  }"
+      ></router-link>
       <div class="c-card__promo" v-if="card.promo">
         {{ card.promo }}
       </div>
