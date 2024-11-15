@@ -1,19 +1,14 @@
 <script setup>
-import { defineProps } from 'vue'
-import { inject } from 'vue'
 
-const productsInject = inject('products')
-
-const  props = defineProps({
-  card: {
-    type: String
-  }
-})
-console.log(props.card);
 
 
 </script>
 <template>
+  <div>
+     CARD {{ card-test }}
+     {{ key }}
+  </div>
+  <hr>
   <div>page product</div>
   <pre>{{ $route }}</pre>
   <hr />

@@ -23,14 +23,14 @@ const router = createRouter({
       name: 'catalog',
       component: Catalog,
       props: true,
-      
+
     },
     {
       path: ROUTES_PATH.PRODUCT,
       name: 'product',
       component: ProductPage,
-      props: true,
-      
+      props: { card: true }
+
     }
   ]
 })

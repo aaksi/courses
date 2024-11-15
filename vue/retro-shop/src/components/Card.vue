@@ -1,7 +1,11 @@
 <script setup>
-import { inject } from 'vue'
+import { inject} from 'vue'
 
-const props = defineProps(['card'])
+const props = defineProps({
+  card: {
+    type: Object
+  }
+})
 
 const addToCart = inject('addToCart')
 
@@ -10,9 +14,9 @@ function cardLink(card) {
   return cardLink
 }
 
-function cardId(card) {
-  return card.id
-}
+
+
+
 </script>
 
 <template>
@@ -21,7 +25,13 @@ function cardId(card) {
       <!-- <router-link class="c-card__link" :to="`catalog/${card.id}`"></router-link> -->
       <router-link
         class="c-card__link"
-        :to="{ name: 'product', params: { name: cardLink(card.name)}, props : 111  }"
+        :card-test="card"
+        :keyTest="card.id"
+        @testClick='testClick'
+        :to="{
+          name: 'product',
+          params: { name: cardLink(card.name), query: { data: 'test' } }
+        }"
       ></router-link>
       <div class="c-card__promo" v-if="card.promo">
         {{ card.promo }}
