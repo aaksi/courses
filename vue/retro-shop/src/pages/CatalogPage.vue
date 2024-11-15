@@ -10,7 +10,7 @@ import CatalogList from '../components/CatalogList.vue'
       <h1 class="e-title">SHOP</h1>
       <div class="c-catalog__inner">
         <CatalogNav></CatalogNav>
-        <CatalogList> </CatalogList>
+        <CatalogList></CatalogList>
       </div>
     </div>
   </div>

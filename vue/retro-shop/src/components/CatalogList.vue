@@ -1,11 +1,27 @@
 <script setup>
-import { ref, defineProps, inject, onMounted, toRefs, watch } from 'vue'
+import { ref, defineProps, inject,  watch } from 'vue'
 import Card from './Card.vue'
 
-const productsInject = inject('products')
+let productsInject = inject('products')
 const catalogCategories = inject('catalogCategories')
 const productsPerPage = inject('productsPerPage')
+const getPreviewProducts = inject('getPreviewProducts')
 
+const props = defineProps({
+  preview: Boolean,
+  previewCount: Number,
+})
+
+
+if (props.preview) {
+  console.log('test');
+  getPreviewProducts(productsInject, props.previewCount, 'featured')
+  setTimeout(() => {
+    
+    console.log(productsInject.value);
+  },10)
+  
+}
 
 const activeCategory = ref('all')
 function getCategoryActive(arr) {
@@ -19,6 +35,7 @@ watch(
   },
   { deep: true }
 )
+
 </script>
 
 <template>

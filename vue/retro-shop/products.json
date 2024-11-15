@@ -6,7 +6,8 @@
     "price": "$99.99",
     "description": "Beautiful vintage brass table lamp from the 50s-70s era. Adds a touch of elegance to any room.",
     "type": "lamp",
-    "promo": "new"
+    "promo": "new",
+    "status" : "featured"
   },
   {
     "id": 2,
@@ -57,7 +58,7 @@
     "description": "Elegant art deco floor lamp with intricate details and a touch of glamour.",
     "type": "lamp"
   },
-  { 
+  {
     "id": 8,
     "name": "Industrial Cage Pendant",
     "img": "lamp8",
@@ -74,7 +75,7 @@
     "type": "lamp",
     "promo": "new"
   },
-  { 
+  {
     "id": 10,
     "name": "Hollywood Regency Chandelier",
     "img": "lamp10",
@@ -88,9 +89,10 @@
     "img": "sofa1",
     "price": "$999.99",
     "description": "Luxurious vintage velvet sofa from the 50s-70s era. Adds elegance and comfort to your living space.",
-    "type": "sofa"
+    "type": "sofa",
+    "status" : "featured"
   },
-  { 
+  {
     "id": 12,
     "name": "Mid-Century Modern Couch",
     "img": "sofa2",
@@ -98,7 +100,7 @@
     "description": "Iconic mid-century modern couch with sleek lines and retro charm. Perfect centerpiece for your home.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 13,
     "name": "Retro Leather Loveseat",
     "img": "sofa3",
@@ -107,7 +109,7 @@
     "type": "sofa",
     "promo": "new"
   },
-  { 
+  {
     "id": 14,
     "name": "Danish Teak Daybed",
     "img": "sofa4",
@@ -115,7 +117,7 @@
     "description": "Classic Danish teak daybed known for its craftsmanship and versatility. A timeless addition to your home.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 15,
     "name": "Art Deco Chaise Lounge",
     "img": "sofa5",
@@ -123,7 +125,7 @@
     "description": "Elegant art deco chaise lounge with curved lines and luxurious upholstery. Elevates your decor with sophistication.",
     "type": "sofa"
   },
-  {     
+  {
     "id": 16,
     "name": "Atomic Era Sectional Sofa",
     "img": "sofa6",
@@ -131,7 +133,7 @@
     "description": "Futuristic atomic era sectional sofa with modular design. Creates a retro-futuristic vibe in your living room.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 17,
     "name": "Scandinavian Style Settee",
     "img": "sofa7",
@@ -139,7 +141,7 @@
     "description": "Minimalist Scandinavian style settee with clean lines and natural materials. Brings Nordic charm to your space.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 18,
     "name": "Hollywood Regency Sofa",
     "img": "sofa8",
@@ -147,7 +149,7 @@
     "description": "Opulent Hollywood Regency sofa with glamourous details and plush upholstery. Makes a statement in any room.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 19,
     "name": "Industrial Leather Sleeper Sofa",
     "img": "sofa9",
@@ -155,7 +157,7 @@
     "description": "Vintage industrial leather sleeper sofa that combines style and functionality. Perfect for modern industrial interiors.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 20,
     "name": "French Provincial Settee",
     "img": "sofa10",
@@ -163,7 +165,7 @@
     "description": "Elegant French provincial settee with ornate details and romantic allure. Adds a touch of French charm to your decor.",
     "type": "sofa"
   },
-  { 
+  {
     "id": 21,
     "name": "Vintage Velvet Armchair",
     "img": "chair1",
@@ -171,7 +173,7 @@
     "description": "Luxurious vintage velvet armchair from the 50s-70s era. Adds sophistication to any room.",
     "type": "chair"
   },
-  {     
+  {
     "id": 22,
     "name": "Mid-Century Dining Chair",
     "img": "chair2",
@@ -179,7 +181,7 @@
     "description": "Iconic mid-century dining chair with sleek design. Perfect for retro-inspired dining spaces.",
     "type": "chair"
   },
-  { 
+  {
     "id": 23,
     "name": "Retro Leather Lounge Chair",
     "img": "chair3",
@@ -187,7 +189,7 @@
     "description": "Stylish retro leather lounge chair for ultimate comfort. A statement piece in any living room.",
     "type": "chair"
   },
-  { 
+  {
     "id": 24,
     "name": "Danish Teak Rocking Chair",
     "img": "chair4",
@@ -195,7 +197,7 @@
     "description": "Classic Danish teak rocking chair known for its craftsmanship and timeless appeal.",
     "type": "chair"
   },
-  { 
+  {
     "id": 25,
     "name": "Art Deco Club Chair",
     "img": "chair5",
@@ -203,7 +205,7 @@
     "description": "Elegant art deco club chair with curved lines and plush upholstery. Adds luxury to your decor.",
     "type": "chair"
   },
-  { 
+  {
     "id": 26,
     "name": "Atomic Era Swivel Chair",
     "img": "chair6",
@@ -211,7 +213,7 @@
     "description": "Futuristic atomic era swivel chair with a retro design. Adds a touch of nostalgia to your space.",
     "type": "chair"
   },
-  { 
+  {
     "id": 27,
     "name": "Scandinavian Style Accent Chair",
     "img": "chair7",
@@ -220,7 +222,7 @@
     "type": "chair",
     "promo": "new"
   },
-  { 
+  {
     "id": 28,
     "name": "Hollywood Regency Armchair",
     "img": "chair8",
@@ -228,7 +230,7 @@
     "description": "Opulent Hollywood Regency armchair with glamorous details and elegant silhouette.",
     "type": "chair"
   },
-  { 
+  {
     "id": 29,
     "name": "Industrial Leather Side Chair",
     "img": "chair9",
@@ -236,13 +238,14 @@
     "description": "Vintage industrial leather side chair that combines style and durability. Perfect for industrial chic interiors.",
     "type": "chair"
   },
-  { 
+  {
     "id": 30,
     "name": "French Provincial Bergere Chair",
     "img": "chair10",
     "price": "$379.99",
     "description": "Elegant French provincial bergere chair with intricate details and classic charm.",
     "type": "chair",
-    "promo": "new"
+    "promo": "new",
+    "status" : "featured"
   }
 ]

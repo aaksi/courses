@@ -5,12 +5,9 @@ import axios from 'axios'
 
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
-import Catalog from './pages/Catalog.vue'
 import Cart from './components/Cart.vue'
 
 import { URL } from './constans'
-
-
 
 const catalogCategories = ref([
   {
@@ -72,27 +69,15 @@ function setProductActive(arr, type) {
   return arr
 }
 
-// const getProducts = async (url) => {
-//   try {
-//     const res = await fetch(`${url}items`)
-//     const data = await res.json()
-//     console.log('products: ', data)
-
-//     products.value = data
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
 const getProducts = async (url) => {
-    const { data } = await axios.get(`${url}items`)  
-    products.value = data
-} 
+  const { data } = await axios.get(`${url}items`)
+  products.value = data
+}
 
 function shuffleArray(array) {
   function compareRandom() {
     return Math.random() - 0.5
   }
-
   return array.sort(compareRandom)
 }
 
@@ -128,6 +113,10 @@ function deleteItemCart(id) {
   })
 }
 
+function getPreviewProducts(arr, count, status) {
+  arr.value = arr.value.filter((el) => el.status === status).slice(0, count)
+}
+
 onMounted(async () => {
   cartItems.value = JSON.parse(localStorage.getItem('cart')) || []
   await getProducts(URL)
@@ -142,6 +131,7 @@ provide('products', productsActive)
 provide('cartItems', cartItems)
 provide('addToCart', addToCart)
 provide('deleteItemCart', deleteItemCart)
+provide('getPreviewProducts', getPreviewProducts)
 </script>
 
 <template>
