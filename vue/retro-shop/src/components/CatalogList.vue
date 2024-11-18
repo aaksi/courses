@@ -1,27 +1,17 @@
 <script setup>
-import { ref, defineProps, inject,  watch } from 'vue'
+import { ref, defineProps, inject, watch } from 'vue'
 import Card from './Card.vue'
 
 let productsInject = inject('products')
 const catalogCategories = inject('catalogCategories')
 const productsPerPage = inject('productsPerPage')
 const getPreviewProducts = inject('getPreviewProducts')
+const arrProducts = ref([])
 
 const props = defineProps({
   preview: Boolean,
-  previewCount: Number,
+  previewCount: Number
 })
-
-
-if (props.preview) {
-  console.log('test');
-  getPreviewProducts(productsInject, props.previewCount, 'featured')
-  setTimeout(() => {
-    
-    console.log(productsInject.value);
-  },10)
-  
-}
 
 const activeCategory = ref('all')
 function getCategoryActive(arr) {
@@ -35,24 +25,36 @@ watch(
   },
   { deep: true }
 )
-
 </script>
 
 <template>
-  <div class="c-catalog-list">
+  <div v-if="!preview" class="c-catalog-list">
     <template v-for="(product, idx) in productsInject" :key="product.id">
       <template v-if="idx < productsPerPage">
         <Card :card="product"></Card>
       </template>
     </template>
   </div>
-  <button
-    class="c-catalog__more"
-    @click="productsPerPage += 3"
-    v-if="productsPerPage < productsInject.length"
-  >
-    <span>Show more</span>
-  </button>
+  <div v-else class="c-catalog-list">
+    <template
+      v-for="(product, idx) in getPreviewProducts(productsInject, 3, 'featured')"
+      :key="product.id"
+    >
+      <template v-if="idx < productsPerPage">
+        <Card :card="product"></Card>
+      </template>
+    </template>
+  </div>
+
+  <template v-if="!preview">
+    <button
+      class="c-catalog__more"
+      @click="productsPerPage += 3"
+      v-if="productsPerPage < productsInject.length"
+    >
+      <span>Show more</span>
+    </button>
+  </template>
 </template>
 
 <style lang="scss" scoped>

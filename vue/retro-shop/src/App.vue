@@ -114,13 +114,19 @@ function deleteItemCart(id) {
 }
 
 function getPreviewProducts(arr, count, status) {
-  arr.value = arr.value.filter((el) => el.status === status).slice(0, count)
+  // console.log('status', status);
+  console.log('start', arr)
+  return arr
+    .filter((el) => (el.status ? el.status.toLowerCase() : el.status) === status.toLowerCase())
+    .slice(0, count)
+  console.log('arr', arr)
 }
 
 onMounted(async () => {
   cartItems.value = JSON.parse(localStorage.getItem('cart')) || []
   await getProducts(URL)
   await shuffleArray(products.value)
+
   productsActive.value = products.value
 })
 

@@ -27,7 +27,6 @@ function cardLink(card) {
         class="c-card__link"
         :card-test="card"
         :keyTest="card.id"
-        @testClick='testClick'
         :to="{
           name: 'product',
           params: { name: cardLink(card.name), query: { data: 'test' } }
