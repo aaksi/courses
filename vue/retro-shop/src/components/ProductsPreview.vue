@@ -8,8 +8,7 @@
 </script>
 
 <template>
-  <section class="section">
-    <div class="c-products-preview">
+  <div class="c-products-preview">
       <div class="container">
         <div class="c-products-preview__inner">
           <div class="e-title">{{ previewName }}</div>
@@ -17,7 +16,7 @@
         </div>
       </div>
     </div>
-  </section>
+  
 </template>
 
 

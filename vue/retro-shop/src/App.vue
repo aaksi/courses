@@ -121,6 +121,11 @@ function getPreviewProducts(arr, count, status) {
     .slice(0, count)
   console.log('arr', arr)
 }
+function cardLink(card) {
+
+  const cardLink = card.toLowerCase().split(' ').join('-')
+  return cardLink
+}
 
 onMounted(async () => {
   cartItems.value = JSON.parse(localStorage.getItem('cart')) || []
@@ -138,6 +143,7 @@ provide('cartItems', cartItems)
 provide('addToCart', addToCart)
 provide('deleteItemCart', deleteItemCart)
 provide('getPreviewProducts', getPreviewProducts)
+provide('cardLink', cardLink)
 </script>
 
 <template>

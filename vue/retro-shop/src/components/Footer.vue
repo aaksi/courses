@@ -4,7 +4,7 @@
     <div class="container">
       <div class="g-footer__inner">
         <div class="g-footer__logo">
-          <img src="../../public/logo.png" alt="Логотип" />
+          <img src="../../public/img/logo.png" alt="Логотип" />
         </div>
         <div class="g-footer__copyright">© 2023 All Rights Reserved.</div>
       </div>

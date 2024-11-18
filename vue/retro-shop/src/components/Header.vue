@@ -14,7 +14,7 @@ const props = defineProps({
     <div class="container">
       <div class="g-header__inner">
         <div class="g-header__logo">
-          <img src="../../public/logo.png" alt="Логотип" />
+          <img src="../../public/img/logo.png" alt="Логотип" />
         </div>
         <ul class="g-header__links">
           <li class="g-header__item">

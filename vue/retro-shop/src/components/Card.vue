@@ -8,11 +8,9 @@ const props = defineProps({
 })
 
 const addToCart = inject('addToCart')
+const cardLink = inject('cardLink')
 
-function cardLink(card) {
-  const cardLink = card.split(' ').join('-')
-  return cardLink
-}
+
 
 
 
@@ -36,7 +34,7 @@ function cardLink(card) {
         {{ card.promo }}
       </div>
       <div class="c-card__img">
-        <img :src="`../../public/products/${card.type}/${card.img}.png`" :alt="card.name" />
+        <img :src="`../../public/img/products/${card.type}/${card.img}.png`" :alt="card.name" />
         <div class="c-card__btn" v-if="!card.cart" @click="addToCart(card.id)">add to cart</div>
       </div>
       <div class="c-card__cnt">

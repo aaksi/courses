@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Oslo",
+    "img": "oslo"
+  },
+  {
+    "id": 2,
+    "name": "New-York",
+    "img": "new-york"
+  },
+  {
+    "id": 3,
+    "name": "Lisbon",
+    "img": "lisbon"
+  },
+  {
+    "id": 4,
+    "name": "Moscow",
+    "img": "moscow"
+  },
+  {
+    "id": 5,
+    "name": "Miami",
+    "img": "miami"
+  }
+]

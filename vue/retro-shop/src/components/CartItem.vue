@@ -9,7 +9,7 @@ const deleteItemCart = inject('deleteItemCart')
   <div class="c-cart-item">
     <div class="c-cart-item__inner">
       <div class="c-cart-item__img">
-        <img :src="`../../public/products/${item.type}/${item.img}.png`" alt="" />
+        <img :src="`../../public/products/img/${item.type}/${item.img}.png`" alt="" />
       </div>
       <div class="c-cart-item__cnt">
         <div class="c-cart-name">
