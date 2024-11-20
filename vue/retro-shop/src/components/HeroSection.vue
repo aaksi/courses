@@ -4,8 +4,7 @@ import { defineProps } from 'vue'
 const props = defineProps({
   bg: String
 })
-console.log(props.bg);
-
+console.log(props.bg)
 </script>
 
 <template>
@@ -15,10 +14,10 @@ console.log(props.bg);
       <div class="container">
         <div class="c-hero-section__inner">
           <h1 class="c-hero-section__title">
-            <slot name='title'></slot>
+            <slot name="title"></slot>
           </h1>
           <!-- <router-link class="c-hero-section__btn e-btn" :to="'/catalog'">Shop now</router-link>-->
-          <slot name='btn'></slot> 
+          <slot name="btn"></slot>
         </div>
       </div>
     </div>
@@ -26,10 +25,10 @@ console.log(props.bg);
 </template>
 
 <style lang="scss" scoped>
-.c-hero-section__wrap{
+.c-hero-section__wrap {
   position: relative;
 }
-.c-hero__bg{
+.c-hero__bg {
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -38,8 +37,21 @@ console.log(props.bg);
   z-index: -1;
   filter: brightness(0.5);
 }
-.c-hero-section__inner{
-  height: 100vh;
-
+.c-hero-section__inner {
+  min-height: max(100vh, 900px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 60px;
+}
+.c-hero-section__title {
+  font-size: 260px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--c-white);
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
 }
 </style>

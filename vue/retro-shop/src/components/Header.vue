@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 const emit = defineEmits(['cartActiveToggle'])
 const props = defineProps({
@@ -14,7 +14,9 @@ const props = defineProps({
     <div class="container">
       <div class="g-header__inner">
         <div class="g-header__logo">
-          <img src="../../public/img/logo.png" alt="Логотип" />
+          <router-link :to="'/'">
+            <img src="../../public/img/logo.png" alt="Логотип" />
+          </router-link>
         </div>
         <ul class="g-header__links">
           <li class="g-header__item">
@@ -26,7 +28,7 @@ const props = defineProps({
             >
           </li>
           <li>
-            <div class="g-header__burger" @click='emit("cartActiveToggle")'>
+            <div class="g-header__burger" @click="emit('cartActiveToggle')">
               <svg
                 width="56"
                 height="15"
@@ -48,7 +50,6 @@ const props = defineProps({
 <style lang="scss" scoped>
 .g-header {
   padding-top: 60px;
-
 }
 
 .g-header__inner {
