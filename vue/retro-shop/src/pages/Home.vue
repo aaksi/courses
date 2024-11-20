@@ -1,20 +1,18 @@
 <script setup>
+import HeroSection from '../components/HeroSection.vue'
 import ProductsPreview from '../components/ProductsPreview.vue'
 import Rooms from '../components/Rooms.vue'
 import Info from '../components/Info.vue'
 import Bnr from '../components/Billboard.vue'
 </script>
 <template>
-  <section class="c-hero-section section section--hero">
-    <div class="c-hero-section__wrap">
-      <div class="c-hero__bg" style="background-image: url('../../public/img/hero-bg.jpg')"></div>
-      <div class="container">
-        <div class="c-hero-section__inner">
-          <h1 class="c-hero-section__title">Design Furniture</h1>
-          <router-link class="c-hero-section__btn e-btn" :to="'/catalog'">Shop now</router-link>
-        </div>
-      </div>
-    </div>
+  <section class="section section--top">
+    <HeroSection :bg="'../../public/img/hero/bg1.jpg'">
+      <template v-slot:title>Design Furniture</template>
+      <template v-slot:btn>
+        <router-link class="c-hero-section__btn e-btn" :to="'/catalog'">Shop now</router-link>
+      </template>
+    </HeroSection>
   </section>
 
   <section class="section">
