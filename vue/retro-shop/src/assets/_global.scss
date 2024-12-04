@@ -235,10 +235,65 @@ h1.e-title {
     background-color: transparent;
     color: var(--c-text);
   }
+
+  &--inverse {
+    background-color: transparent;
+    color: var(--c-white);
+    border: 1px solid var(--c-border);
+    &:hover {
+      background-color: var(--c-white);
+      color: var(--c-text);
+    }
+  }
+  &--more {
+  }
+}
+.e-link {
+  text-transform: uppercase;
+  font-family: var(--f-text);
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  width: max-content;
+  margin-right: auto;
+  margin-left: auto;
+  svg {
+    width: 32px;
+    height: 6px;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    svg {
+      transform: translateX(5px);
+    }
+  }
 }
 
 .section {
   & + & {
     margin: 200px 0;
   }
+}
+
+.e-title {
+  font-size: 128px;
+  line-height: 1.1;
+}
+.e-title-box {
+  text-align: center;
+  & + * {
+    margin-top: 100px;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }

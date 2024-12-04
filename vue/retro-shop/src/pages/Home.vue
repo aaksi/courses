@@ -4,13 +4,17 @@ import ProductsPreview from '../components/ProductsPreview.vue'
 import Rooms from '../components/Rooms.vue'
 import Info from '../components/Info.vue'
 import Bnr from '../components/Billboard.vue'
+
+
 </script>
 <template>
   <section class="section section--top">
     <HeroSection :bg="'../../public/img/hero/bg1.jpg'">
       <template v-slot:title>Design Furniture</template>
       <template v-slot:btn>
-        <router-link class="c-hero-section__btn e-btn" :to="'/catalog'">Shop now</router-link>
+        <router-link class="c-hero-section__btn e-btn e-btn--inverse" :to="'/catalog'"
+          >Shop now</router-link
+        >
       </template>
     </HeroSection>
   </section>

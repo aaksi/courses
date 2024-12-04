@@ -113,16 +113,12 @@ function deleteItemCart(id) {
   })
 }
 
-function getPreviewProducts(arr, count, status) {
-  // console.log('status', status);
-  console.log('start', arr)
+function getPreviewProducts(arr, count = 3, status) {
   return arr
     .filter((el) => (el.status ? el.status.toLowerCase() : el.status) === status.toLowerCase())
     .slice(0, count)
-  console.log('arr', arr)
 }
 function cardLink(card) {
-
   const cardLink = card.toLowerCase().split(' ').join('-')
   return cardLink
 }
@@ -149,10 +145,15 @@ provide('cardLink', cardLink)
 <template>
   <div class="g-main" :class="{ 'is-active': cartActive }">
     <Header @cartActiveToggle="cartActiveToggle" :cartItems="cartItems"></Header>
-    <RouterView />
+    <transition name="fade" mode='out-in' appear>
+      <router-view> </router-view>
+    </transition>
+    <!-- <RouterView  /> -->
     <Cart @cartActiveToggle="cartActiveToggle" :cartActive="cartActive"></Cart>
     <Footer></Footer>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

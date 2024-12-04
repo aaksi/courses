@@ -38,7 +38,7 @@
 }
 .c-billboard__wrap {
   position: relative;
-  min-height: 100vh;
+  min-height: max(100vh, 900px);
   overflow: hidden;
   display: flex;
   align-items: center;
