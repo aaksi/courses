@@ -35,7 +35,8 @@ onMounted(isPathActive)
 <style lang="scss" scoped>
 @import '@/assets/styles/index.scss';
 .menu {
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 20px 5px 0 5px;
   border-right: 1px solid $border;
 }
