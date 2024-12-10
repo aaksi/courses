@@ -14,3 +14,6 @@ export const getRecipeById = async (id) => {
 
   return data?.data?.meals[0]
 }
+
+export const createRecipe = () => {}
+export const updateRecipe = () => {}

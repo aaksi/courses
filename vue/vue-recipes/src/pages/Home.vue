@@ -4,13 +4,19 @@ import { RecipeService } from '@/service'
 import { ROUTES_PATHS } from '@/constants'
 import AppLayout from '@/layouts/AppLayout.vue'
 import AppButton from '@/components/AppButton.vue'
+import AppLoader from '@/components/AppLoader.vue'
 
 const recipes = ref()
+const isLoading = ref(false)
 
 const fetchRecipes = async () => {
   try {
+    isLoading.value = true
     recipes.value = await RecipeService.getRecipesByLetter()
-  } catch {}
+    isLoading.value = false
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 const getRecipePath = (id) => {
@@ -29,7 +35,8 @@ onMounted(fetchRecipes)
       </router-link>
     </template>
     <template #inner>
-      <div class="wrapper">
+      <AppLoader v-if="isLoading"></AppLoader>
+      <div v-else class="wrapper">
         <el-table :data="recipes" style="width: 100%">
           <el-table-column prop="idMeal" label="Id" />
           <el-table-column label="Image">
