@@ -1,34 +1,25 @@
-<script setup>
-import { defineProps } from 'vue'
-
-const emit = defineEmits(['cartActiveToggle'])
-const props = defineProps({
-  cartItems: {
-    type: Array
-  }
-})
-</script>
+<script setup></script>
 
 <template>
   <div class="g-header">
     <div class="container">
       <div class="g-header__inner">
         <div class="g-header__logo">
-          <router-link :to="'/'">
-            <img src="../../public/img/logo.png" alt="Логотип" />
-          </router-link>
+          <img src="../../public/img/logo.png" alt="Логотип" />
+          <!-- <router-link :to="'/'">
+          </router-link> -->
         </div>
         <ul class="g-header__links">
           <li class="g-header__item">
-            <a href="#" class="g-header__link">Каталог</a>
+            <a href="#" class="g-header__link">Catalog</a>
           </li>
           <li class="g-header__item">
             <a href="#" class="g-header__link"
-              >Корзина <span class="g-header__link-count">{{ cartItems.length }}</span></a
+              >Cart <span class="g-header__link-count">5</span></a
             >
           </li>
           <li>
-            <div class="g-header__burger" @click="emit('cartActiveToggle')">
+            <div class="g-header__burger">
               <svg
                 width="56"
                 height="15"

@@ -6,7 +6,7 @@ import Footer from '@/components/Footer.vue'
 <template>
   <Header />
   <main>
-    test
+    <slot name="g-main"></slot>
   </main>
   <Footer />
 </template>

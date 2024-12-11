@@ -1,14 +1,16 @@
 <script setup>
-import HeroSection from '../components/HeroSection.vue'
-import ProductsPreview from '../components/ProductsPreview.vue'
-import Rooms from '../components/Rooms.vue'
-import Info from '../components/Info.vue'
-import Bnr from '../components/Billboard.vue'
-
-
+// import HeroSection from '../components/HeroSection.vue'
+// import ProductsPreview from '../components/ProductsPreview.vue'
+// import Rooms from '../components/Rooms.vue'
+// import Info from '../components/Info.vue'
+// import Bnr from '../components/Billboard.vue'
+import AppLayout from '@/layouts/AppLayout.vue'
 </script>
 <template>
-  <section class="section section--top">
+  <AppLayout>
+    <template #g-main> test </template>
+  </AppLayout>
+  <!-- <section class="section section--top">
     <HeroSection :bg="'../../public/img/hero/bg1.jpg'">
       <template v-slot:title>Design Furniture</template>
       <template v-slot:btn>
@@ -51,7 +53,7 @@ import Bnr from '../components/Billboard.vue'
     <Bnr></Bnr>
   </div>
 
-  <Rooms></Rooms>
+  <Rooms></Rooms> -->
 </template>
 
 <style lang="scss" scoped></style>
