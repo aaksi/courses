@@ -15,11 +15,12 @@ function setDefaultCategoriesActive(categories) {
   })
   return categories
 }
-function setCategoryActive(id) {
-  setActiveCategoryStore(id)
+function setCategoryActive(name) {
+  name = name.toLowerCase()
+  setActiveCategoryStore(name)
   categories.value.forEach((el) => {
     el.active = false
-    if (el.id === id) el.active = true
+    if (el.name.toLowerCase() === name) el.active = true
   })
 }
 
@@ -31,7 +32,6 @@ onMounted(async () => {
 
 <template>
   <div class="c-catalog-nav">
-    {{ activeCategoryStore }}
     <ul class="c-catalog-nav__list">
       <template v-for="category in categories" :key="category.id">
         <li class="c-catalog-nav__item">
@@ -39,7 +39,7 @@ onMounted(async () => {
             href="#"
             class="c-catalog-nav__link"
             :class="category.active ? 'is-active' : ''"
-            @click.prevent="setCategoryActive(category.id)"
+            @click.prevent="setCategoryActive(category.name)"
             >{{ category.name }}</a
           >
         </li>

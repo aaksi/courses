@@ -1,11 +1,16 @@
 <script setup>
-import { ref, onMounted, computed, defineProps, inject } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import { CommonService } from '@/service'
 import Card from './Card.vue'
 import { useCatalogStore } from '@/stores/root'
+import { BASE_COUNT_PRODUCTS } from '@/constants'
 const catalogStore = useCatalogStore()
 const activeCategory = computed(() => catalogStore.activeCategory)
-const products = ref()
+const products = ref([])
+const productsFiltered = ref([])
+const promo = ref(false)
+const productsLength = ref(0)
+const blockProductsLength = ref(BASE_COUNT_PRODUCTS)
 
 async function fetchProducts() {
   try {
@@ -14,34 +19,47 @@ async function fetchProducts() {
     console.log(err)
   }
 }
-onMounted(() => {
-  console.log('catalogList: ', activeCategory.value);
-  fetchProducts()
-  
+watch(
+  activeCategory,
+  () => {
+    blockProductsLength.value = BASE_COUNT_PRODUCTS
+    if (activeCategory.value !== 'all') {
+      productsFiltered.value = products.value.filter(
+        (el) => el.type === activeCategory.value
+      )
+    } else {
+      productsFiltered.value = products.value
+    }
+  },
+  { deep: true }
+)
+
+onMounted(async () => {
+  await fetchProducts()
+  productsLength.value = productsFiltered.value.length
+  productsFiltered.value = products.value
 })
 </script>
 
 <template>
-  <div class="c-catalog-list">
-    {{ activeCategory }}
-    <template>
-      <template>
-        <Card></Card>
-      </template>
-    </template>
-  </div>
-  <div class="c-catalog-list">
-    <template>
-      <template>
-        <Card></Card>
-      </template>
-    </template>
-  </div>
+  <template v-if="productsFiltered.length">
 
-  <template>
-    <button class="c-catalog__more">
-      <span>Show more</span>
-    </button>
+    <div class="c-catalog-list">
+      <template v-for="(product, idx) in productsFiltered" :key="product.id">
+        <template v-if='idx < blockProductsLength'>
+          <Card :product="product"></Card>
+        </template>
+      </template>
+    </div>
+
+    <template v-if="productsFiltered.length >= blockProductsLength">
+      <button
+        class="c-catalog__more"
+        @click="blockProductsLength += BASE_COUNT_PRODUCTS"
+      >
+        <span>Show more</span>
+      </button>
+    </template>
   </template>
 </template>
 

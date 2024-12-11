@@ -1,18 +1,26 @@
-<script setup></script>
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps(['product'])
+</script>
 
 <template>
   <div class="c-card">
     <div class="c-card__inner">
       <!-- <router-link> </router-link> -->
-      <div class="c-card__promo"></div>
+      <div class="c-card__promo" v-if="product.promo">
+        {{ product.promo }}
+      </div>
       <div class="c-card__img">
-        <!-- <img :src="`../../public/img/products/${}/${}.png`" alt="" /> -->
-        <img src="" alt="" />
+        <img
+          :src="`../../public/img/products/${product.type}/${product.img}.png`"
+          :alt="product.name"
+        />
         <div class="c-card__btn">add to cart</div>
       </div>
       <div class="c-card__cnt">
-        <div class="c-card__name"></div>
-        <div class="c-card__price">USD</div>
+        <div class="c-card__name">{{ product.name }}</div>
+        <div class="c-card__price">{{ product.price }}</div>
       </div>
     </div>
   </div>

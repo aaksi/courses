@@ -11,10 +11,10 @@ import { defineStore } from 'pinia'
 //   // return { products }
 // })
 export const useCatalogStore = defineStore('catalog', () => {
-  const activeCategory = ref(1)
+  const activeCategory = ref('all')
 
-  const setActiveCategory = (id) => {
-    activeCategory.value = id
+  const setActiveCategory = (name) => {
+    activeCategory.value = name
   }
 
   return { activeCategory, setActiveCategory }
