@@ -4,7 +4,7 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <Header />
+  <Header> </Header>
   <main>
     <slot name="g-main"></slot>
   </main>

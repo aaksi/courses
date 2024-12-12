@@ -1,9 +1,7 @@
 <script setup>
-
 import AppLayout from '@/layouts/AppLayout.vue'
 import CatalogNav from '@/components/CatalogNav.vue'
 import CatalogList from '@/components/CatalogList.vue'
-
 </script>
 
 <template>
@@ -13,8 +11,8 @@ import CatalogList from '@/components/CatalogList.vue'
         <div class="container">
           <h1 class="e-title">SHOP</h1>
           <div class="c-catalog__inner">
-            <CatalogNav ></CatalogNav>
-            <CatalogList ></CatalogList>
+            <CatalogNav></CatalogNav>
+            <CatalogList></CatalogList>
           </div>
         </div>
       </div>

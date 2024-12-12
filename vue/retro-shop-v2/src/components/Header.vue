@@ -1,13 +1,25 @@
-<script setup></script>
+<script setup>
+import { ref, computed } from 'vue'
+import { useCartStore } from '@/stores/root'
+import Cart from './Cart.vue'
+
+const cartStore = useCartStore()
+const cartItems = computed(() => cartStore.cartItems)
+
+const cartActive = ref(false)
+const toggleCart = () => {
+  cartActive.value = !cartActive.value
+}
+</script>
 
 <template>
   <div class="g-header">
     <div class="container">
       <div class="g-header__inner">
         <div class="g-header__logo">
-          <img src="../../public/img/logo.png" alt="Логотип" />
-          <!-- <router-link :to="'/'">
-          </router-link> -->
+          <router-link :to="'/'">
+            <img src="../../public/img/logo.png" alt="Логотип" />
+          </router-link>
         </div>
         <ul class="g-header__links">
           <li class="g-header__item">
@@ -15,11 +27,11 @@
           </li>
           <li class="g-header__item">
             <a href="#" class="g-header__link"
-              >Cart <span class="g-header__link-count">5</span></a
+              >Cart <span class="g-header__link-count">{{ cartItems.length }}</span></a
             >
           </li>
           <li>
-            <div class="g-header__burger">
+            <button class="g-header__burger" @click="toggleCart">
               <svg
                 width="56"
                 height="15"
@@ -30,10 +42,13 @@
                 <rect x="6" y="0.5" width="50" height="1" fill="#343339" />
                 <rect x="16" y="13.5" width="40" height="1" fill="#343339" />
               </svg>
-            </div>
+            </button>
           </li>
         </ul>
       </div>
+    </div>
+    <div class="g-header__cart">
+      <Cart :cartActive="cartActive" @cartActiveToggle="toggleCart"></Cart>
     </div>
   </div>
 </template>

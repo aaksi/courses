@@ -4,6 +4,7 @@ import { CommonService } from '@/service'
 import Card from './Card.vue'
 import { useCatalogStore } from '@/stores/root'
 import { BASE_COUNT_PRODUCTS } from '@/constants'
+
 const catalogStore = useCatalogStore()
 const activeCategory = computed(() => catalogStore.activeCategory)
 const products = ref([])
@@ -19,6 +20,14 @@ async function fetchProducts() {
     console.log(err)
   }
 }
+
+function shuffleArray(array) {
+  function compareRandom() {
+    return Math.random() - 0.5
+  }
+  return array.sort(compareRandom)
+}
+
 watch(
   activeCategory,
   () => {
@@ -37,7 +46,7 @@ watch(
 onMounted(async () => {
   await fetchProducts()
   productsLength.value = productsFiltered.value.length
-  productsFiltered.value = products.value
+  productsFiltered.value = shuffleArray(products.value)
 })
 </script>
 

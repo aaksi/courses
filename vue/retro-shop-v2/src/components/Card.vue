@@ -1,13 +1,21 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed, ref } from 'vue'
+import { useCartStore } from '@/stores/root'
 
 const props = defineProps(['product'])
+const cartStore = useCartStore()
+const cartItems = computed(() => cartStore.cartItems)
+const isItemInCart = computed(() =>
+  cartItems.value.some((el) => el.id === props.product.id)
+)
 </script>
 
 <template>
   <div class="c-card">
     <div class="c-card__inner">
-      <!-- <router-link> </router-link> -->
+      <div class="c-card__link">
+        <router-link :to="`/product/${product.id}`"></router-link>
+      </div>
       <div class="c-card__promo" v-if="product.promo">
         {{ product.promo }}
       </div>
@@ -16,7 +24,13 @@ const props = defineProps(['product'])
           :src="`../../public/img/products/${product.type}/${product.img}.png`"
           :alt="product.name"
         />
-        <div class="c-card__btn">add to cart</div>
+        <button
+          class="c-card__btn"
+          :class="{ 'is-disabled': isItemInCart }"
+          @click="cartStore.addToCart(product)"
+        >
+          {{ isItemInCart ? 'Added' : 'Add' }} to cart
+        </button>
       </div>
       <div class="c-card__cnt">
         <div class="c-card__name">{{ product.name }}</div>
@@ -36,6 +50,11 @@ const props = defineProps(['product'])
   position: absolute;
   inset: 0;
   z-index: 10;
+  a {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 }
 .c-card__img {
   width: 100%;
@@ -92,11 +111,25 @@ const props = defineProps(['product'])
   opacity: 0;
   z-index: 10;
   cursor: pointer;
+
   &:hover {
     transform: translateX(-50%) scale(1.1);
   }
   .c-card:hover & {
     opacity: 1;
+  }
+
+  &.is-disabled {
+    filter: brightness(0.5);
+    opacity: 0;
+    &:hover {
+      pointer-events: none;
+      transform: translateX(-50%) scale(1);
+    }
+    .c-card:hover & {
+      pointer-events: none;
+      opacity: 0.5;
+    }
   }
 }
 .c-card__promo {
