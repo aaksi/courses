@@ -19,6 +19,8 @@ export const useCatalogStore = defineStore('catalog', () => {
 
   return { activeCategory, setActiveCategory }
 })
+
+
 export const useCartStore = defineStore('cart', () => {
   const cartItems = ref([])
 

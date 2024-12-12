@@ -20,7 +20,8 @@ const routes = createRouter({
     {
       path: '/product/:id',
       name: 'product',
-      component: Product
+      component: Product,
+
     }
   ]
 })

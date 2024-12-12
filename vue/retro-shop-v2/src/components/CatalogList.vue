@@ -53,7 +53,7 @@ onMounted(async () => {
 <template>
   <template v-if="productsFiltered.length">
 
-    <div class="c-catalog-list">
+    <div class="c-catalog__list">
       <template v-for="(product, idx) in productsFiltered" :key="product.id">
         <template v-if='idx < blockProductsLength'>
           <Card :product="product"></Card>
@@ -73,7 +73,7 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
-.c-catalog-list {
+.c-catalog__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 90px 70px;

@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps, computed, ref } from 'vue'
+import { defineProps, computed} from 'vue'
 import { useCartStore } from '@/stores/root'
+
 
 const props = defineProps(['product'])
 const cartStore = useCartStore()
@@ -8,6 +9,7 @@ const cartItems = computed(() => cartStore.cartItems)
 const isItemInCart = computed(() =>
   cartItems.value.some((el) => el.id === props.product.id)
 )
+
 </script>
 
 <template>

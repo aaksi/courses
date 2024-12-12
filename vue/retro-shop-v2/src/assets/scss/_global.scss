@@ -235,7 +235,6 @@ h1.e-title {
     background-color: transparent;
     color: var(--c-text);
   }
-  
 
   &--inverse {
     background-color: transparent;
@@ -246,7 +245,19 @@ h1.e-title {
       color: var(--c-text);
     }
   }
-  &--more {
+
+  &.is-disabled {
+    filter: brightness(0.5);
+    opacity: 0.5;
+    pointer-events: none;
+    &:hover {
+      pointer-events: none;
+      transform: scale(1);
+    }
+    .c-card:hover & {
+      pointer-events: none;
+      opacity: 0.5;
+    }
   }
 }
 .e-link {
@@ -282,6 +293,9 @@ h1.e-title {
 .e-title {
   font-size: 128px;
   line-height: 1.1;
+  &--center {
+    text-align: center;
+  }
 }
 .e-title-box {
   text-align: center;
@@ -297,4 +311,27 @@ h1.e-title {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.ul {
+  li {
+    position: relative;
+    padding-left: 20px;
+    display: block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background-color: var(--c-text);
+    }
+  }
+  li + li {
+    margin-top: 10px;
+  }
 }

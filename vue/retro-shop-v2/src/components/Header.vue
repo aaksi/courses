@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, defineProps   } from 'vue'
 import { useCartStore } from '@/stores/root'
 import Cart from './Cart.vue'
 
@@ -10,10 +10,17 @@ const cartActive = ref(false)
 const toggleCart = () => {
   cartActive.value = !cartActive.value
 }
+
+const props = defineProps({
+  headerAbsolute: {
+    type: Boolean,
+    default: false,
+  },
+})
 </script>
 
 <template>
-  <div class="g-header">
+  <div class="g-header" :class="{ 'g-header--absolute': headerAbsolute }">
     <div class="container">
       <div class="g-header__inner">
         <div class="g-header__logo">
@@ -56,6 +63,13 @@ const toggleCart = () => {
 <style lang="scss" scoped>
 .g-header {
   padding-top: 60px;
+  &--absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
 }
 
 .g-header__inner {
