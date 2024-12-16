@@ -1,11 +1,10 @@
 <script setup>
-import { computed } from 'vue';
-import CartItem from './CartItem.vue';
+import { computed } from 'vue'
+import CartItem from './CartItem.vue'
 import { useCartStore } from '@/stores/root'
 
 const cartStore = useCartStore()
 const cartItems = computed(() => cartStore.cartItems)
-
 
 const props = defineProps({
   cartActive: {
@@ -40,13 +39,13 @@ const emit = defineEmits(['cartActiveToggle'])
       </div>
       <div class="g-cart__body">
         <div class="c-cart-items">
-          <template v-for='item in cartItems' :key='item'>
-            <CartItem :item='item'></CartItem>
+          <template v-for="item in cartItems" :key="item">
+            <CartItem :item="item"></CartItem>
           </template>
         </div>
       </div>
-      <div class="g-cart__footer">
-        <div class="e-btn">button</div>
+      <div class="g-cart__footer" v-if='cartItems.length'>
+        <div class="e-btn">buy</div>
       </div>
     </div>
   </div>

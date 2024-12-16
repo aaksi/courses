@@ -8,11 +8,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  headerColorInverse: {
+    type: Boolean,
+    default: false,
+  },
 })
 </script>
 
 <template>
-  <Header :header-absolute="headerAbsolute" > </Header>
+  <Header :headerAbsolute="headerAbsolute" :headerColorInverse="headerColorInverse"> </Header>
   <main>
     <slot name="g-main"></slot>
   </main>

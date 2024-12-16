@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, defineProps   } from 'vue'
+import { ref, computed, defineProps } from 'vue'
 import { useCartStore } from '@/stores/root'
 import Cart from './Cart.vue'
 
@@ -16,16 +16,32 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  headerColorInverse: {
+    type: Boolean,
+    default: false,
+  },
 })
+
+const logoSrc = props.headerColorInverse
+  ? '../../public/img/logo-inverse.png'
+  : '../../public/img/logo.png'
+
+console.log(props.headerColorInverse)
 </script>
 
 <template>
-  <div class="g-header" :class="{ 'g-header--absolute': headerAbsolute }">
+  <div
+    class="g-header"
+    :class="{
+      'g-header--absolute': headerAbsolute,
+      'g-header--inverse': headerColorInverse,
+    }"
+  >
     <div class="container">
       <div class="g-header__inner">
         <div class="g-header__logo">
           <router-link :to="'/'">
-            <img src="../../public/img/logo.png" alt="Логотип" />
+            <img :src="logoSrc" alt="Логотип" />
           </router-link>
         </div>
         <ul class="g-header__links">
@@ -34,7 +50,10 @@ const props = defineProps({
           </li>
           <li class="g-header__item">
             <a href="#" class="g-header__link"
-              >Cart <span class="g-header__link-count">{{ cartItems.length }}</span></a
+              >Cart
+              <span class="g-header__link-count">{{
+                cartItems.length
+              }}</span></a
             >
           </li>
           <li>
@@ -70,6 +89,7 @@ const props = defineProps({
     width: 100%;
     z-index: 100;
   }
+
 }
 
 .g-header__inner {
@@ -78,6 +98,9 @@ const props = defineProps({
   justify-content: space-between;
 }
 .g-header__logo {
+  img {
+    object-fit: contain;
+  }
 }
 .g-header__links {
   text-transform: uppercase;
@@ -119,6 +142,22 @@ const props = defineProps({
   svg {
     width: 100%;
     height: 100%;
+    .g-header--inverse & {
+      fill: var(--c-white);
+    }
+  }
+}
+.g-header--inverse  {
+  .g-header__inner{
+    color: var(--c-white);
+    *{
+      color: var(--c-white);
+    }
+  }
+  .g-header__burger {
+    svg, rect{
+      fill: var(--c-white);
+    }
   }
 }
 </style>

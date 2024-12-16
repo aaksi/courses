@@ -335,3 +335,13 @@ h1.e-title {
     margin-top: 10px;
   }
 }
+
+
+.f-form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  min-width: 300px;
+}
+

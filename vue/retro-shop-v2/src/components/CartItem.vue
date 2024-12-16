@@ -52,7 +52,7 @@ const cartStore = useCartStore()
 
 .c-cart-item__inner {
   display: grid;
-  grid-template-columns: 100px 1fr 20px;
+  grid-template-columns: 70px 1fr 20px;
   gap: 20px;
   align-items: center;
 }
@@ -67,9 +67,9 @@ const cartStore = useCartStore()
   }
 }
 .c-cart-item__img {
-  width: 100px;
+  width: 70px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 500px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   img {
@@ -78,7 +78,7 @@ const cartStore = useCartStore()
   }
 
   .c-cart-item:hover & {
-    border-radius: 5px;
+    transform: scale(1.05);
   }
 }
 .c-cart-name {
