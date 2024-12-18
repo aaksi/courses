@@ -3,7 +3,8 @@ import { defineProps } from 'vue'
 
 const props = defineProps({
   placeholder: String,
-  type: String,
+  name: String,
+
 })
 </script>
 
@@ -12,14 +13,14 @@ const props = defineProps({
     <input
       type="text"
       class="f-input"
-      :type="type"
+      :name="name"
       :placeholder="placeholder"
     />
   </label>
 </template>
 
 <style lang="scss" scoped>
-.f-input{
+.f-input {
   font-size: 24px;
   width: 100%;
   padding: 20px 30px;

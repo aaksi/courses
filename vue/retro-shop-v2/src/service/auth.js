@@ -1,1 +1,5 @@
-export const form = document.querySelector('.js-form')
+export const formHandler = (event) => {
+
+
+
+}

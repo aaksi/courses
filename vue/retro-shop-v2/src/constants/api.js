@@ -6,4 +6,4 @@ export const URL_ORDER = `${BASE_URL}/order`
 export const URL_FEATURES = `${BASE_URL}/features`
 export const URL_ROOMS = `${BASE_URL}/rooms`
 export const URL_RELATED = `${BASE_URL}/items?status=related`
-
+export const URL_REGISTRATION = `${BASE_URL}/register`
