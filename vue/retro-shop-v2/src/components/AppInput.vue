@@ -4,14 +4,17 @@ import { defineProps } from 'vue'
 const props = defineProps({
   placeholder: String,
   name: String,
-
+  typeInput : {
+    type: String, 
+    default : 'text'
+  }
 })
 </script>
 
 <template>
   <label class="f-label">
     <input
-      type="text"
+      :type="typeInput"
       class="f-input"
       :name="name"
       :placeholder="placeholder"
