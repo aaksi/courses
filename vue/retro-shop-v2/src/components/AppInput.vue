@@ -30,5 +30,9 @@ const props = defineProps({
   border: 2px solid var(--c-border);
   border-radius: 500px;
   font-family: var(--f-text);
+
+  &.is-not-valid {
+    border-color: rgba(#800000, 0.5);
+  }
 }
 </style>

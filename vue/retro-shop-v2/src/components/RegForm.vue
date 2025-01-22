@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import Input from '@/components/AppInput.vue'
 import AppBtn from './AppBtn.vue'
-import { URL_REGISTRATION } from '@/constants'
+import { URL_REGISTRATION, BASE_CHAR_COUNT_AUTH } from '@/constants'
 
 const form = ref()
 
@@ -34,26 +34,63 @@ function formHandler(event) {
 }
 
 function validator(obj) {
-  const pass = ''
+  let pass = ''
   const data = {}
-  
-  inputs.value.forEach((el) => {
+  let countValid = ref(true)
+
+  Array.from(inputs.value).every((el) => {
     data[el.name] = el.value
 
     if (!el.value) {
-      el.classList.add('')
+      el.classList.add('is-not-valid')
+      formValid.value = false
     }
 
-    // if(el.password) pass = el.password.value
-    // if(el.password_confirm) pass === el.password_confirm ? passValid.value = true : passValid.value = false
-  })
+    if (el.name === 'name' && el.value.length < BASE_CHAR_COUNT_AUTH.name) {
+      el.classList.add('is-not-valid')
+      formValid.value = false
+    }
+    if (el.name === 'email' && el.value.length < BASE_CHAR_COUNT_AUTH.mail) {
+      el.classList.add('is-not-valid')
+      formValid.value = false
+    }
+    if (
+      el.name === 'password' &&
+      el.value.length < BASE_CHAR_COUNT_AUTH.password
+    ) {
+      el.classList.add('is-not-valid')
+      formValid.value = false
+    }
+    if (
+      el.name === 'confirm_password' &&
+      el.value.length < BASE_CHAR_COUNT_AUTH.password
+    ) {
+      el.classList.add('is-not-valid')
+      formValid.value = false
+    }
 
-  if(data.password !== data.password_confirm) {
-    // inputs.map(el =>  )
-  }
+    if (el.name === 'password') pass = el.value
+    if (el.name === 'confirm_password' && pass !== el.value) {
+      el.classList.add('is-not-valid')
+      formValid.value = false
+      return false
+    }
+
+    if (countValid.value) {
+      el.classList.remove('is-not-valid')
+    } else {
+      return false
+    }
+
+    el.classList.remove('is-not-valid')
+    formValid.value = true
+    sendData(data)
+    return true
+  })
 
   console.log(data)
 }
+
 function sendData(data) {
   axios
     .post(URL_REGISTRATION, data)
@@ -87,9 +124,8 @@ function sendData(data) {
     <Input placeholder="Email" :name="'email'" :typeInput="'email'"></Input>
     <Input placeholder="Password" :name="'password'"></Input>
     <Input placeholder="Confirm password" :name="'confirm_password'"></Input>
-    <AppBtn :class="formValid ? '' : 'is-disabled'" @click="formHandler"
-      >Register</AppBtn
-    >
+    {{ formValid }}
+    <AppBtn @click="formHandler">Register</AppBtn>
   </form>
 </template>
 
