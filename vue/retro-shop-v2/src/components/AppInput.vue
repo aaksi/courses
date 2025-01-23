@@ -1,14 +1,21 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, ref, watch, defineEmits } from 'vue'
+
+// const emits = defineEmits(['update:modelValue'])
+const model = defineModel()
 
 const props = defineProps({
+  modelValue: String,
   placeholder: String,
-  name: String,
-  typeInput : {
-    type: String, 
-    default : 'text'
-  }
+  typeInput: {
+    type: String,
+    default: 'text',
+    validator: (val) => ['text', 'password', 'email'].includes(val),
+  },
 })
+
+const value = ref(props.modelValue)
+watch(value, () => model.value = value.value)
 </script>
 
 <template>
@@ -16,8 +23,8 @@ const props = defineProps({
     <input
       :type="typeInput"
       class="f-input"
-      :name="name"
       :placeholder="placeholder"
+      v-model="value"
     />
   </label>
 </template>

@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div class="e-btn">
+  <button class="e-btn">
     <slot></slot>
-  </div>
+  </button>
 </template>
 
 <style lang="scss" scoped>
