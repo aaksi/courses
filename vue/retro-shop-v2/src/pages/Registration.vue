@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue'
 
-import RegForm from '@/components/RegForm.vue'
+import RegForm from '@/components/AuthForm.vue'
 </script>
 
 <template>

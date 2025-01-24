@@ -43,3 +43,9 @@ export const useCartStore = defineStore('cart', () => {
 
   return { cartItems, addToCart, getItemsFromLocalstorage, deleteItemCart }
 })
+
+export const useAuthentication = defineStore('auth', () => {
+  let auth = false
+
+  return { auth }
+})

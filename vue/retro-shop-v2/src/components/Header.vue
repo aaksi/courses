@@ -26,7 +26,6 @@ const logoSrc = props.headerColorInverse
   ? '../../public/img/logo-inverse.png'
   : '../../public/img/logo.png'
 
-console.log(props.headerColorInverse)
 </script>
 
 <template>

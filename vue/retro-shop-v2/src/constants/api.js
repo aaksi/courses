@@ -7,3 +7,4 @@ export const URL_FEATURES = `${BASE_URL}/features`
 export const URL_ROOMS = `${BASE_URL}/rooms`
 export const URL_RELATED = `${BASE_URL}/items?status=related`
 export const URL_REGISTRATION = `${BASE_URL}/register`
+export const URL_AUTH_CHECK = `${BASE_URL}/auth_me`
