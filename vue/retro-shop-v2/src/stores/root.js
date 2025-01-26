@@ -45,7 +45,7 @@ export const useCartStore = defineStore('cart', () => {
 })
 
 export const useAuthentication = defineStore('auth', () => {
-  let auth = false
+  let auth = ref(false)
 
   return { auth }
 })

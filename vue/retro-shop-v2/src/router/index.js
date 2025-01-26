@@ -2,7 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
 import Catalog from '@/pages/Catalog.vue'
 import Product from '@/pages/Product.vue'
-import Registration from '@/pages/Registration.vue'
+import Auth from '@/pages/Auth.vue'
+import Main from '@/pages/Main.vue'
+
+import { getCookie } from '@/service/auth'
 
 
 const routes = createRouter({
@@ -25,11 +28,30 @@ const routes = createRouter({
 
     },
     {
-      path: '/registration',
-      name: 'registration',
-      component: Registration
+      path: '/auth',
+      name: 'auth',
+      component: Auth
+    },
+    {
+      path: '/main',
+      name: 'main',
+      component: Main
     }
   ]
+})
+
+routes.beforeEach((to, from, next) => {
+  const cookie = getCookie()
+
+  if (cookie?.token && to.name === 'auth') {
+    next({ name: 'main' })
+  }
+  else if (!cookie?.token && to.name === 'main') {
+    next({ name: 'auth' })
+  }
+  else {
+    next()
+  }
 })
 
 export default routes

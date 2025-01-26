@@ -44,8 +44,10 @@ const emit = defineEmits(['cartActiveToggle'])
           </template>
         </div>
       </div>
-      <div class="g-cart__footer" v-if='cartItems.length'>
-        <div class="e-btn">buy</div>
+      <div class="g-cart__footer" v-if="cartItems.length">
+        <router-link :to="'/main'">
+          <button class="e-btn">buy</button>
+        </router-link>
       </div>
     </div>
   </div>

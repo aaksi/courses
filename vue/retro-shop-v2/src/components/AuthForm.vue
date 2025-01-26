@@ -1,49 +1,40 @@
 <script setup>
-import { ref, onMounted, reactive, watch } from 'vue'
+import { ref, onMounted, reactive, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import axios from 'axios'
 import Input from '@/components/AppInput.vue'
 import AppBtn from './AppBtn.vue'
-import { URL_REGISTRATION, BASE_CHAR_COUNT_AUTH } from '@/constants'
-// import { setAuthTokenCookie } from '@/service/auth'
-// import { formHandler } from '@/service/auth'
+import { URL_REGISTRATION, URL_AUTH } from '@/constants'
+import { setCookie } from '@/service/auth'
 
-const formHandler = async (url, data) => {
-  try {
-    const res = await axios.post(url, data)
-    console.log(res.data.token)
-    setAuthTokenCookie(res.data.token)
-    return res
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-const setAuthTokenCookie = (token) => {
-  document.cookie = `token=${token}`
-}
-// console.log(document.cookie)
-
-const getCookie = () => {
-  const res = document.cookie.split('; ').reduce((acc, item) => {
-    const [name, val] = item.split('=')
-    acc[name] = val
-    return acc
-  },{})
-
-  return res
-}
-
-
-
-const url = URL_REGISTRATION
+const props = defineProps({
+  auth: {
+    type: Boolean,
+    default: false,
+  },
+})
+const authLogin = ref(true)
+const url = computed(() => {
+  return authLogin.value ? URL_AUTH : URL_REGISTRATION
+})
+const router = useRouter()
 const data = reactive({
   name: '',
   email: '',
   password: '',
 })
-onMounted(() => {
-  console.log(getCookie().token)
-})
+
+const formHandler = async (url, data) => {
+  try {
+    const res = await axios.post(url, data)
+    setCookie('token', res.data.token)
+    setCookie('user', res.data.data)
+    router.push('/main')
+    return res
+  } catch (err) {
+    console.log(err)
+  }
+}
 </script>
 
 <template>
@@ -56,8 +47,11 @@ onMounted(() => {
       :typeInput="'password'"
       placeholder="Password"
     ></Input>
-    <AppBtn>Register</AppBtn>
+    <AppBtn>{{ authLogin ? 'Login' : 'Registration' }}</AppBtn>
   </form>
+  <button class="e-center mt-def" @click="authLogin = !authLogin">
+    {{ authLogin ? 'Registration' : 'Login' }}
+  </button>
 </template>
 
 <style lang="scss" scoped></style>

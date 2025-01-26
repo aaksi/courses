@@ -1,7 +1,8 @@
 <script setup>
-import { ref, computed, defineProps } from 'vue'
+import { ref, computed, defineProps, onMounted } from 'vue'
 import { useCartStore } from '@/stores/root'
 import Cart from './Cart.vue'
+import { getCookie } from '@/service/auth'
 
 const cartStore = useCartStore()
 const cartItems = computed(() => cartStore.cartItems)
@@ -10,6 +11,8 @@ const cartActive = ref(false)
 const toggleCart = () => {
   cartActive.value = !cartActive.value
 }
+const auth = ref(false)
+const cookie = getCookie()
 
 const props = defineProps({
   headerAbsolute: {
@@ -26,6 +29,11 @@ const logoSrc = props.headerColorInverse
   ? '../../public/img/logo-inverse.png'
   : '../../public/img/logo.png'
 
+onMounted(() => {
+  if (cookie.token && cookie.user) {
+    auth.value = true
+  }
+})
 </script>
 
 <template>
@@ -45,15 +53,26 @@ const logoSrc = props.headerColorInverse
         </div>
         <ul class="g-header__links">
           <li class="g-header__item">
-            <a href="#" class="g-header__link">Catalog</a>
+            <router-link :to="`/catalog`" class="g-header__link">
+              Catalog</router-link
+            >
           </li>
           <li class="g-header__item">
-            <a href="#" class="g-header__link"
-              >Cart
-              <span class="g-header__link-count">{{
-                cartItems.length
-              }}</span></a
-            >
+            <router-link :to='`/main`' class="g-header__link">
+              Cart
+              <span class="g-header__link-count">{{ cartItems.length }}</span>
+            </router-link>
+          </li>
+          <li class="g-header__item">
+            <router-link :to="`/${auth ? 'main' : 'auth'}`">
+              {{
+                auth
+                  ? cookie?.user?.name
+                    ? cookie.user.name
+                    : 'My account'
+                  : 'My account'
+              }}
+            </router-link>
           </li>
           <li>
             <button class="g-header__burger" @click="toggleCart">
@@ -72,7 +91,7 @@ const logoSrc = props.headerColorInverse
         </ul>
       </div>
     </div>
-    <div class="g-header__cart">
+    <div class="g-header__cart" >
       <Cart :cartActive="cartActive" @cartActiveToggle="toggleCart"></Cart>
     </div>
   </div>
@@ -88,7 +107,6 @@ const logoSrc = props.headerColorInverse
     width: 100%;
     z-index: 100;
   }
-
 }
 
 .g-header__inner {
@@ -146,15 +164,16 @@ const logoSrc = props.headerColorInverse
     }
   }
 }
-.g-header--inverse  {
-  .g-header__inner{
+.g-header--inverse {
+  .g-header__inner {
     color: var(--c-white);
-    *{
+    * {
       color: var(--c-white);
     }
   }
   .g-header__burger {
-    svg, rect{
+    svg,
+    rect {
       fill: var(--c-white);
     }
   }

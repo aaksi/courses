@@ -23,3 +23,9 @@ export const getProductRelated = async () => {
 
   return data?.data
 }
+
+export const checkToken = (url, token) => {
+  return axios.get(url, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
