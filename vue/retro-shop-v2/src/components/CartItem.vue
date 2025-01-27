@@ -4,7 +4,6 @@ import { useCartStore } from '@/stores/root'
 const props = defineProps(['item'])
 
 const cartStore = useCartStore()
-
 </script>
 
 <template>

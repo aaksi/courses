@@ -7,21 +7,22 @@ import AppBtn from './AppBtn.vue'
 import { URL_REGISTRATION, URL_AUTH } from '@/constants'
 import { setCookie } from '@/service/auth'
 
+const router = useRouter()
 const props = defineProps({
   auth: {
     type: Boolean,
     default: false,
   },
 })
-const authLogin = ref(true)
-const url = computed(() => {
-  return authLogin.value ? URL_AUTH : URL_REGISTRATION
-})
-const router = useRouter()
 const data = reactive({
   name: '',
   email: '',
   password: '',
+})
+const authLogin = ref(true)
+
+const url = computed(() => {
+  return authLogin.value ? URL_AUTH : URL_REGISTRATION
 })
 
 const formHandler = async (url, data) => {

@@ -1,4 +1,4 @@
-import { checkToken } from './providers'
+import axios from 'axios'
 
 export const getCookie = () => {
   const res = document.cookie.split('; ').reduce((acc, item) => {
@@ -41,4 +41,11 @@ export const logOut = () => {
   deleteCookie('token')
   localStorage.clear()
   location.reload()
+}
+
+
+const checkToken = (url, token) => {
+  return axios.get(url, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
 }

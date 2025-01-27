@@ -6,8 +6,6 @@ onMounted(() => {})
 <template>
   <form action="" class="f-form js-form">
     <slot name="inputs"></slot>
-
-    
   </form>
 </template>
 

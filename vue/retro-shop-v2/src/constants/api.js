@@ -9,3 +9,4 @@ export const URL_RELATED = `${BASE_URL}/items?status=related`
 export const URL_REGISTRATION = `${BASE_URL}/register`
 export const URL_AUTH_CHECK = `${BASE_URL}/auth_me`
 export const URL_AUTH = `${BASE_URL}/auth`
+export const URL_USERS = `${BASE_URL}/users`
