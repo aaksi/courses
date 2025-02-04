@@ -25,7 +25,16 @@ const url = computed(() => {
   return authLogin.value ? URL_AUTH : URL_REGISTRATION
 })
 
+const validator = (obj) => {
+  console.log(obj)
+
+  for (let item of obj) {
+    console.log(item)
+  }
+}
+
 const formHandler = async (url, data) => {
+  if (!validator(data)) return
   try {
     const res = await axios.post(url, data)
     setCookie('token', res.data.token)
@@ -41,10 +50,11 @@ const formHandler = async (url, data) => {
 <template>
   {{ data }}
   <form @submit.prevent.stop="formHandler(url, data)" class="f-form js-form">
-    <Input v-model="data.name" placeholder="Name"></Input>
-    <Input v-model="data.email" placeholder="E-mail"></Input>
+    <Input v-model="data.name" inputValid="name" placeholder="Name" ></Input>
+    <Input v-model="data.email" inputValid="mail" placeholder="E-mail"></Input>
     <Input
       v-model="data.password"
+      inputValid="password"
       :typeInput="'password'"
       placeholder="Password"
     ></Input>

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { BASE_CHAR_COUNT_AUTH } from '../constants/common'
 
 export const getCookie = () => {
   const res = document.cookie.split('; ').reduce((acc, item) => {
@@ -48,4 +49,17 @@ const checkToken = (url, token) => {
   return axios.get(url, {
     headers: { Authorization: `Bearer ${token}` },
   })
+}
+
+
+export const validator = (target, type, value) => {
+  for (let item in BASE_CHAR_COUNT_AUTH) {
+    if (type === item) {
+      target.classList.toggle('is-error', (console.log(value < BASE_CHAR_COUNT_AUTH[item])))
+
+      if (type === 'mail') {
+
+      }
+    }
+  }
 }

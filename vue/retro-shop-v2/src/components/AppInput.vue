@@ -1,9 +1,14 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue'
+import { validator } from '@/service/auth'
 
 const model = defineModel({ required: true })
 
 const props = defineProps({
+  inputValid: {
+    type: String,
+    required: true,
+  },
   placeholder: String,
   typeInput: {
     type: String,
@@ -15,7 +20,9 @@ const props = defineProps({
 
 <template>
   <label class="f-label">
+    {{ model }}
     <input
+      @blur='validator($event.target, props.inputValid, model)'
       :type="typeInput"
       class="f-input"
       :placeholder="placeholder"
@@ -33,7 +40,7 @@ const props = defineProps({
   border-radius: 500px;
   font-family: var(--f-text);
 
-  &.is-not-valid {
+  &.is-error {
     border-color: rgba(#800000, 0.5);
   }
 }
